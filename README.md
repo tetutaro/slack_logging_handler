@@ -10,4 +10,4 @@ Python logging handler for Slack using incoming webhook
 
 ## Usage
 
-see [sample](tree/master/sample)
+see [sample](sample)
