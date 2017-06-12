@@ -23,11 +23,13 @@ class SlackLoggingHandler(logging.Handler):
 	}
 
 	def __init__(
-		self, webhook_url, channel=None, username=None, emojis=None,
+		self, url=None, channel=None, username=None, emojis=None,
 		format='%(asctime)s: %(module)s-%(name)s: %(message)s'
 	):
 		logging.Handler.__init__(self)
-		self.webhook_url = webhook_url
+		if url is None:
+			raise ValueError('url must be set')
+		self.webhook_url = url
 		self.channel = channel
 		self.username = username
 		self.formatter = logging.Formatter(format)
