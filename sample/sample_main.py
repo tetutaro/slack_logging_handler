@@ -3,7 +3,9 @@
 import os
 import time
 import logging
+import logging.config
 from slack_logging_handler import SlackLoggingHandler
+from logging_format import logging_dict_config
 
 from same_level import same_notset, same_debug, same_info
 from same_level import same_warning, same_error, same_critical
@@ -11,17 +13,7 @@ from child.child_level import child_notset, child_debug, child_info
 from child.child_level import child_warning, child_error, child_critical
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-slack_handler = SlackLoggingHandler(
-	os.getenv('SLACK_LOGGING_HANDLER_URL'),
-	username='slack_logging_sample',
-	format='%(asctime)s: %(name)s: %(message)s'
-)
-slack_handler.setLevel(logging.DEBUG)
-logger.addHandler(slack_handler)
-stream_handler = logging.StreamHandler()
-stream_handler.setLevel(logging.WARNING)
-logger.addHandler(stream_handler)
+logging.config.dictConfig(logging_dict_config)
 
 
 def sample_notset():
