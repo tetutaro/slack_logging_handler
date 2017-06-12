@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding:utf-8 -*-
 '''
 package of logging handler which send messages to Slack
@@ -7,7 +7,7 @@ import logging
 import simplejson as json
 import requests
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 __url = 'https://github.com/tetutaro/slack_logging_handler'
 __author = 'maruyama'
 
@@ -24,7 +24,7 @@ class SlackLoggingHandler(logging.Handler):
 
 	def __init__(
 		self, url=None, channel=None, username=None, emojis=None,
-		format='%(asctime)s: %(module)s-%(name)s: %(message)s'
+		format='%(asctime)s: %(name)s-%(module)s: %(message)s'
 	):
 		logging.Handler.__init__(self)
 		if url is None:

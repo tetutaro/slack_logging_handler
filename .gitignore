@@ -2,3 +2,4 @@ build
 dist
 slack_logging_handler.egg-info
 __pycache__
+*.pyc
