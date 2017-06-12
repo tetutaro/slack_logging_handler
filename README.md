@@ -17,3 +17,5 @@ Python logging handler for Slack using incoming webhook
 ## Usage
 
 see [sample](sample)
+
+![sample](slack_logging_sample.png)

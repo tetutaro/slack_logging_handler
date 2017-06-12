@@ -1,21 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-import os
-import logging
-from slack_logging_handler import SlackLoggingHandler
+import logging.config
+from .config_logging import config_logging_dict
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-slack_handler = SlackLoggingHandler(
-	os.getenv('SLACK_LOGGING_HANDLER_URL'),
-	username='slack_logging_sample',
-	format='%(asctime)s: %(name)s: %(message)s'
-)
-slack_handler.setLevel(logging.DEBUG)
-logger.addHandler(slack_handler)
-stream_handler = logging.StreamHandler()
-stream_handler.setLevel(logging.WARNING)
-logger.addHandler(stream_handler)
+logging.config.dictConfig(config_logging_dict)
+logger = logging.getLogger('slack_logging_sample')
 
 
 def same_notset():

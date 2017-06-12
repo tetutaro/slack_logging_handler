@@ -7,7 +7,7 @@ import logging
 import simplejson as json
 import requests
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 __url = 'https://github.com/tetutaro/slack_logging_handler'
 __author = 'maruyama'
 

@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-import os
 import time
-import logging
 import logging.config
-from slack_logging_handler import SlackLoggingHandler
-from logging_format import logging_dict_config
+from .config_logging import config_logging_dict
+from .same_level import same_notset, same_debug, same_info
+from .same_level import same_warning, same_error, same_critical
+from .child.child_level import child_notset, child_debug, child_info
+from .child.child_level import child_warning, child_error, child_critical
 
-from same_level import same_notset, same_debug, same_info
-from same_level import same_warning, same_error, same_critical
-from child.child_level import child_notset, child_debug, child_info
-from child.child_level import child_warning, child_error, child_critical
-
-logger = logging.getLogger(__name__)
-logging.config.dictConfig(logging_dict_config)
+logging.config.dictConfig(config_logging_dict)
+logger = logging.getLogger('slack_logging_sample')
 
 
 def sample_notset():
@@ -70,7 +66,7 @@ def sample_critical():
 	return
 
 
-if __name__ == '__main__':
+def do_sample():
 	sample_notset()
 	time.sleep(1)
 	sample_debug()
